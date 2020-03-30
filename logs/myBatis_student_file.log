@@ -1,0 +1,13 @@
+[TRACE] [2020-03-30 11:46:26] HikariDataSource (HikariPool-1)
+[TRACE] [2020-03-30 11:46:26] HikariProxyConnection@703659798 wrapping com.mysql.jdbc.JDBC4Connection@440d77a7
+[TRACE] [2020-03-30 11:51:07] HikariDataSource (HikariPool-1)
+[TRACE] [2020-03-30 11:51:07] HikariProxyConnection@703659798 wrapping com.mysql.jdbc.JDBC4Connection@440d77a7
+[DEBUG] [2020-03-30 11:51:07] testOpenSession()
+[DEBUG] [2020-03-30 11:53:30] testOpenSession()
+[DEBUG] [2020-03-30 11:53:31] sessionorg.apache.ibatis.session.defaults.DefaultSqlSession@17c4fc75
+[TRACE] [2020-03-30 11:53:31] HikariDataSource (HikariPool-2)
+[TRACE] [2020-03-30 11:53:31] HikariProxyConnection@1507327013 wrapping com.mysql.jdbc.JDBC4Connection@3918fed9
+[TRACE] [2020-03-30 12:24:29] HikariDataSource (HikariPool-1)
+[TRACE] [2020-03-30 12:24:29] HikariProxyConnection@703659798 wrapping com.mysql.jdbc.JDBC4Connection@440d77a7
+[DEBUG] [2020-03-30 12:24:29] testOpenSession()
+[DEBUG] [2020-03-30 12:24:29] sessionorg.apache.ibatis.session.defaults.DefaultSqlSession@3918fed9
