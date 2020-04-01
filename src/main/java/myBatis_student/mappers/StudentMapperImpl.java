@@ -22,8 +22,9 @@ public class StudentMapperImpl implements StudentMapper {
 
 	@Override
 	public Student selectStudentByNo(Student student) {
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();) {
 			return sqlSession.selectOne(namespace + ".selectStudentByNo", student);
-	
+		}
 	}
 
 	@Override

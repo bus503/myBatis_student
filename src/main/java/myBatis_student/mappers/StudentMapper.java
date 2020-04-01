@@ -8,4 +8,5 @@ public interface StudentMapper {
 	Student selectStudentByNo(Student student); //타입핸들러 사용
 	Student seleStudentByNoWithResultMap(Student student); //사용하지않음
 	List<Student> selectStudentByAll();
+	insertStudent(Student student);
 }
