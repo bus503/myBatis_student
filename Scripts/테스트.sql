@@ -34,4 +34,4 @@ from students;
 
 delete 
 from students
-where stud_id =3;
+where stud_id =5;
