@@ -48,5 +48,38 @@ select t.tutor_id, t.name as tutor_name,email,c.course_id,c.name,description,sta
 from tutors t left outer join courses c on t.tutor_id = c.tutor_id 
 where t.tutor_id =1;
 
+select*
+from students;
+
+insert into students(stud_id,name,email,phone,dob,gender) 
+		values();
+
+desc students;
+
+ALTER TABLE mybatis_study.user_pics MODIFY COLUMN pic LONGBLOB NULL COMMENT 'pic';
+
+
+alter table students add gender tinyint unsigned;
+desc students;
+
+desc user_pics;
+
+select*
+from user_pics;
+
+select stud_id, name, email, phone, dob, gender
+from students
+where name='황태원';
+
+delete
+from students 
+where stud_id =3;
+
+
+
+
+
+
+
 
 		

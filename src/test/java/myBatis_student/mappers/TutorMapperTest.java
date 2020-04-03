@@ -16,7 +16,7 @@ import myBatis_student.jdbc.AbstractTest;
 import myBatis_student.jdbc.MyBatisSqlSessionFactory;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class TotorMapperTest extends AbstractTest {
+public class TutorMapperTest extends AbstractTest {
 	private static TutorMapperImpl dao;
 	private static SqlSession sqlSession;
 

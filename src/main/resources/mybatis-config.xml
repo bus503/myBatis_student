@@ -2,6 +2,7 @@
 <!DOCTYPE configuration
  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
 <configuration>
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
@@ -12,6 +13,7 @@
 	</typeAliases>
 	
 	<typeHandlers>
+			<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="Gender"/>
 			<package name="myBatis_student.typehandlers"/>
 	</typeHandlers>
 
@@ -21,9 +23,8 @@
 			<dataSource type="myBatis_student.jdbc.HikariCPFactory"/>
 		</environment>
 	</environments>
+	
 	<mappers>
-	
-	<package name="myBatis_student.mappers"/>
-	
+		<package name="myBatis_student.mappers"/>
 	</mappers>
 </configuration>
