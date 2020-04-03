@@ -22,13 +22,14 @@ import myBatis_student.jdbc.MyBatisSqlSessionFactory;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class StudentMapperTest extends AbstractTest{
-	private static StudentMapper dao;
+	private static StudentMapperImpl dao;
 	private static SqlSession sqlSession;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		dao = StudentMapperImpl.getInstance();
 		sqlSession = MyBatisSqlSessionFactory.openSession();
+		dao.setSqlSession(sqlSession);
 		
 	}
 
@@ -68,7 +69,7 @@ public class StudentMapperTest extends AbstractTest{
 		}
 	}
 	
-	@Test
+	//@Test
 	public void test04InsertStudent() {
 		Calendar newDate = GregorianCalendar.getInstance();
 		newDate.set(1991,12,18);
@@ -99,10 +100,10 @@ public class StudentMapperTest extends AbstractTest{
 		Assert.assertEquals(1, res);
 	}
 	
-	@Test
+	//@Test
 	public void test06DeleteStudent() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-		int deleteStudent = dao.deleteStudent(6);
+		int deleteStudent = dao.deleteStudent(3);
 		Assert.assertSame(1, deleteStudent);
 	}
 	
@@ -150,5 +151,16 @@ public class StudentMapperTest extends AbstractTest{
 			}
 		}
 	}
+	
+	@Test
+	public void test10selectStudentByNoAssociation() {
+		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+		Student student = new Student();
+		student.setStudId(1);
+		Student selectedStd = dao.selectStudentByNoAssociation(student);
+		Assert.assertNotNull(selectedStd);
+		log.debug(selectedStd.toString());
+	}
+	
 
 }

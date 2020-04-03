@@ -13,9 +13,7 @@ public class StudentMapperImpl implements StudentMapper {
 	private static final StudentMapperImpl Instance = new StudentMapperImpl();
 	private SqlSession sqlSession;
 	
-	public StudentMapperImpl() {
-		this.sqlSession = MyBatisSqlSessionFactory.openSession();
-	}
+	public StudentMapperImpl() {}
 
 	public static StudentMapperImpl getInstance() {
 		return Instance;
@@ -83,6 +81,13 @@ public class StudentMapperImpl implements StudentMapper {
 	public List<Map<String, Object>> selectStudentByAllForHashMap() {
 		try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession()){
 			return sqlSession.selectList(namespace + ".selectStudentByAllForHashMap");
+		}
+	}
+
+	@Override
+	public Student selectStudentByNoAssociation(Student student) {
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession()){
+			return sqlSession.selectOne(namespace + ".selectStudentByNoAssociation",student);
 		}
 	}
 }

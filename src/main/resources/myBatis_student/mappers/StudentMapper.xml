@@ -81,5 +81,14 @@
 		<include refid="selectSQL"/>
 	</select>
 	
+	<resultMap type="Student" id="StudentAssociation">
+		<association property="address" resultMap="myBatis_student.mappers.AddressMapper.AddressResult"/>
+	</resultMap>
+	
+	<select id="selectStudentByNoAssociation" parameterType="Student" resultMap="StudentAssociation">
+		select stud_id, name, email, phone, dob, a.addr_id, street, city, state, zip, country
+		from students s join addresses a on s.addr_id = a.addr_id
+		<include refid="whereSQL"/>
+	</select>
 </mapper>
 

@@ -20,4 +20,6 @@ public interface StudentMapper {
 	//hasMap
 	List<Map<String,Object>> selectStudentByAllForHashMap();
 	
+	Student selectStudentByNoAssociation(Student student);
+	
 }
