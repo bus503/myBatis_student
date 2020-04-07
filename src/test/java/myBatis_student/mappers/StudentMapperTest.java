@@ -30,7 +30,7 @@ public class StudentMapperTest extends AbstractTest{
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		dao = StudentMapperImpl.getInstance();
-		sqlSession = MyBatisSqlSessionFactory.openSession();
+		sqlSession = MyBatisSqlSessionFactory.openSession(true);
 		dao.setSqlSession(sqlSession);
 		
 	}
@@ -211,7 +211,7 @@ public class StudentMapperTest extends AbstractTest{
 		
 	}
 	
-	@Test
+	//@Test
 	public void test13selectStudentForMap() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		Map<Integer,Student> map =dao.selectStudentForMap(1);
@@ -220,5 +220,28 @@ public class StudentMapperTest extends AbstractTest{
 		for(Entry<Integer,Student>entry : map.entrySet()) {
 			System.out.printf("key(%s) - valuse(%s)%n", entry.getKey(),entry.getValue());
 		}
+	}
+	
+	
+	@Test
+	public void test14UpdateSetStudent() {
+		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+		Student student = new Student();
+		
+		student.setStudId(1);
+		student.setName("test");
+		//student.setEmail("bus503@daum.net");
+		student.setPhone(new PhoneNumber("111-1111-1111"));
+		student.setDob(new Date());
+	
+		int result = dao.updateSetStudent(student);
+		Assert.assertSame(1, result);
+		
+		
+		student.setPhone(new PhoneNumber("222-2222-2222"));
+		student.setDob(new GregorianCalendar(1991,11,18).getTime());
+		
+		result = dao.updateSetStudent(student);
+		Assert.assertSame(1, result);
 	}
 }

@@ -75,8 +75,44 @@ delete
 from students 
 where stud_id =3;
 
+select * from courses
+where tutor_id in(1,2);
 
 
+select *
+from courses;
+
+select *
+from students;
+
+delete 
+from courses
+where course_id in(4,5,6);
+
+select*
+from tutors;
+
+select*
+from courses;
+
+drop procedure if exists course_total;
+DELIMITER $$
+create procedure course_total(in tutor_id int)
+begin
+	select t.name as tutor, ifnull(count(c.name),0) as total
+	from tutors t left join courses c on t.tutor_id =c.tutor_id 
+	where t.tutor_id = tutor_id;
+end $$ 
+DELIMITER ;
+
+call course_total(1);
+
+
+select *
+from tutors t left join courses c on t.tutor_id =c.tutor_id;
+
+select ifnull(count(c.name),0)
+from
 
 
 

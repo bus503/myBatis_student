@@ -34,4 +34,8 @@ public interface StudentMapper {
 	//Result 처리방식의 재정의
 	Map<Integer, Student> selectStudentForMap(int studId);
 	
+	
+	//set 엘리먼트를 이용한다
+	int updateSetStudent(Student student);
+	
 }

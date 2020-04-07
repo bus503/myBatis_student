@@ -27,7 +27,7 @@ public class UserPicMapperTest extends AbstractTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		dao = UserPicMapperImpl.getInstance();
-		sqlSession = MyBatisSqlSessionFactory.openSession();
+		sqlSession = MyBatisSqlSessionFactory.openSession(true);
 		dao.setSqlSession(sqlSession);
 	}
 
@@ -38,7 +38,7 @@ public class UserPicMapperTest extends AbstractTest {
 	
 	}
 
-	@Test
+	//@Test
 	public void test01InsertUserPic() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		UserPic userPic = new UserPic();

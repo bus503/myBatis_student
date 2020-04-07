@@ -46,6 +46,23 @@ public class Course {
 	public void setTutorId(int tutorId) {
 		this.tutorId = tutorId;
 	}
+	
+	
+	public Course(int courseId, String name, String description, Date startDate, Date endDate, int tutorId) {
+		super();
+		this.courseId = courseId;
+		this.name = name;
+		this.description = description;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.tutorId = tutorId;
+	}
+	
+
+	public Course(int courseId) {
+		super();
+		this.courseId = courseId;
+	}
 	@Override
 	public String toString() {
 		return "Course [courseId=" + courseId + ", name=" + name + ", description=" + description + ", startDate="
